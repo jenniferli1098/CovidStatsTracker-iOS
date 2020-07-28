@@ -1,5 +1,5 @@
 # CovidStats-iOS
-
+iOS app that displays the current info on COVID-19 at a given region. Uses location tracker and Covid-19 API to gain real-time info for users. 
 ### Attributions
 [Gradient Images](https://codeburst.io/gradient-color-in-app-design-trends-examples-resources-bf9f259cea09)
 
