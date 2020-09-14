@@ -16,8 +16,8 @@ protocol CovidDataManagerDelegate {
 }
 
 struct CovidDataManager {
-    let covidURL =
-    "https://covid-api.com/api/reports?"
+    let covidURL = "https://covid-api.com/api/reports?"
+    let urlString = "https://api.covid19api.com/summary"
     var delegate: CovidDataManagerDelegate?
     
     func fetchCovidData (regionName: String){
@@ -46,7 +46,6 @@ struct CovidDataManager {
                 }
                 if let safeData = data {
                     //let dataString = String(data: safeData, encoding: .utf8)
-                    print(safeData)
                     if let covidData = self.parseJSON(safeData) {
                         self.delegate?.didUpdateData(data: covidData)
                     }
@@ -72,13 +71,13 @@ struct CovidDataManager {
             let province = result.region.province
             let country = result.region.name
             let active_cases = result.active
-            //let confirmed = decodedData.confirmed
+            let confirmed = result.confirmed
             //let deaths = decodedData.deaths
-            let new_cases = result.active_diff
+            let new_cases = result.confirmed_diff
             let new_deaths = result.deaths_diff
             let fatality_rate = result.fatality_rate
             
-            return CovidDataModel(province: province, country: country, activeCases: active_cases, newCases: new_cases, newDeaths: new_deaths, fatalityRate: fatality_rate)
+            return CovidDataModel(province: province, confirmed: confirmed, country: country, activeCases: active_cases, newCases: new_cases, newDeaths: new_deaths, fatalityRate: fatality_rate)
             
         } catch {
             self.delegate?.didFailWithError(error: error)

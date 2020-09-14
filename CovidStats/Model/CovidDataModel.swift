@@ -11,6 +11,7 @@ import Foundation
 struct CovidDataModel {
     //var conditionID: Int
     var province: String
+    var confirmed: Int
     var country: String
     var activeCases: Int
     var newCases: Int

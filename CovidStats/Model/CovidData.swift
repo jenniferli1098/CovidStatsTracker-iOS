@@ -16,7 +16,7 @@ struct Data: Decodable {
     let active: Int
     let confirmed: Int //total in history
     let deaths: Int
-    let active_diff: Int
+    let confirmed_diff: Int
     let deaths_diff: Int
     let fatality_rate: Double
     let region: Region
